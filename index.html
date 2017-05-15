@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <title>Testing: it's not just for code anymore</title>
+  <link href='big.css' rel='stylesheet' type='text/css' />
+  <link href='highlight.min.css' rel='stylesheet' type='text/css' />
+  <style>
+    .new-shiny { background: #aaaaaa; }
+    .white { background: #fff; }
+    .green { color: #3AB259; }
+  </style>
+  <script src='big.js'></script>
+  <script src='highlight.js'></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <div><em>Testing:</em> it's <strong>not</strong> just for <span class='green'>code</span> anymore!</div>
+  <div>My name is <a href='https://twitter.com/lyzidiamond'>Lyzi Diamond</a>. I work on <a href='https://mapbox.com/api-documentation'>APIs</a> at <a href='https://mapbox.com/'>Mapbox</a>.</div>
+  <div>The point of this talk: testing is <em>good</em>.</div>
+  <div>The point of this talk: testing is <strong>necessary</strong>.</div>
+  <div>We will talk about: <ul><li><strong>The Mapbox API documentation story</strong></li><li><em>Why our approach worked</em></li><li><span class='green'>How you can do it too</span></li></ul></div>
+  <div><strong>Part one:</strong> The Mapbox API documentation story!</div>
+  <div><em>September 5, 2015</em></div>
+  <div data-background-image='./img/geocoding-2015.png'></div>
+  <div data-background-image='./img/distance-2015.png'></div>
+  <div data-background-image='./img/uploads-2015.png'></div>
+  <div>Good documentation pays attention to the <em>small</em> things:<ul class='green'><li>Consistency</li><li>Completeness</li><li>Correctness</li><li>Contributability</li></div>
+  <div><a href='https://mapbox.com/api-documentation'>Mapbox API Documentation 2: Document Harder</a></div>
+  <div>How we did it: <strong>docbox</strong> and <em>retext-mapbox-standard</em></div>
+    <div>(special thanks to <a href='https://github.com/tmcw'>tmcw</a> and <a href='https://github.com/wooorm'>wooorm</a> for contributing to <span class='green'>awesome</span> open source projects)</div>
+  <div>1. <a href='https://github.com/tmcw/docbox'>docbox</a></div>
+  <div data-background-image='./img/docbox-readme.png'></div>
+  <div>Markdown → JSON (Syntax Tree) using <a href='http://remark.js.org/'>remark</a></div>
+  <div data-background-image='./img/remark-intro.png'></div>
+  <div data-background-image='./img/rainbow-markdown.jpg'></div>
+  <div data-background-image='./img/rainbow-markdown-chunks.jpg'></div>
+  <div data-background-image='./img/rainbow-doc-ui.jpg'></div>
+  <div data-background-image='./img/demo-docbox.png'></div>
+  <div data-background-image='./img/docbox-chunks.jpg'></div>
+  <div>Other awesome thing about docbox: <em>robust tests</em> for structure</div>
+  <div data-background-image='./img/docbox-tests.png'></div>
+  <div>2. <a href='https://github.com/mapbox/retext-mapbox-standard'>retext-mapbox-standard</a></div>
+  <div data-background-image='./img/retext-mapbox-standard-readme.png'></div>
+  <div>Takes advantage of <a href='https://github.com/wooorm/retext'>retext</a> + <em>retext plugins</em> + our own <span class='green'>magic</span></div>
+  <div data-background-image='./img/retext-plugins.png'></div>
+  <div data-background-image='./img/mapbox-retext-standard-acronyms.png'><br><br>acronyms</div>
+  <div data-background-image='./img/mapbox-retext-standard-brands.png'><br><br>brand</div>
+  <div data-background-image='./img/mapbox-retext-standard-forbidden.png'><br><br>forbidden</div>
+  <div>(another super special thanks to <a href='https://twitter.com/katydecorah'>Katy Decorah</a> for her excellent work on clear <a href='http://katydecorah.com/code/writing-for-everyone/'>writing for everyone</a>)</div>
+  <div>What it looks like in <strong>action</strong>:</div>
+  <div><em>Problem:</em> the Static API is missing a <span class='green'>JavaScript example</span></div>
+  <div data-background-image='./img/api-doc-test-fail.gif'></div>
+  <div><em>Solution:</em> add a comment that says <span class='green'>This API cannot be accessed with the JavaScript SDK</span></div>
+  <div data-background-image='./img/javascript-comment.png'></div>
+  <div data-background-image='./img/api-doc-tests.gif'></div>
+  <div><strong>Part 2:</strong> Why our approach worked</div>
+  <div><ol><li>Enforces <em>consistency</em></li><li>Ensures <em>completness</em></li><li>Pushes an eye toward <em>correctness</em></li><li>Makes it easier to <em>contribute</em></li></ol></div>
+  <div>Enforces consistency... <strong>automagically</strong>!</div>
+  <div>In content <em>and</em> in structure</div>
+  <div data-background-image='./img/api-doc-contrib-2.png'><br><br>mapping HTTP methods to verbs</div>
+  <div>In the documentation <em>and</em> the APIs</div>
+  <div data-background-image='./img/hey-api-consistency.png'></div>
+  <div>Ensures completeness... <strong>automagically</strong>!</div>
+  <div data-background-image='./img/docbox-tests.png'></div>
+  <div>Encourages and enables <span class='green'>collaboration</span> in writing documentation (<em>not</em> automagical)</div>
+  <div data-background-image='./img/api-doc-contributors-1.png'></div>
+  <div data-background-image='./img/api-doc-contributors-2.png'></div>
+  <div data-background-image='./img/api-doc-contributors-3.png'></div>
+  <div>Forces decisionmaking (<strong>also</strong> not automagical)</div>
+  <div data-background-image='./img/api-doc-contrib-1.png'></div>
+  <div><span class='green'>Super special bonus unintended awesome thing:</span> more people able to <em>speak knowledgeably</em> about the product and <strong>ask compelling questions</strong>.</div>
+  <div data-background-image='./img/automation-structure.JPG'></div>
+  <div><strong>The truth:</strong> without automated testing, our documentation would fail.</div>
+  <div data-background-image='./img/mapbox-repos-test.png'></div>
+  <div><strong>Part 3:</strong> How you can do it too</div>
+  <div>No matter where you go, <em>tests will follow you</em></div>
+  <div><a href='https://github.com/mapbox/mapbox-content-test'>mapbox-content-test</a></div>
+  <div data-background-image='./img/mapbox-content-test-readme.png'></div>
+  <div><a href='https://katydecorah.com/copy-cop'>copy-cop</a>, which relies on <a href='http://www.plainlanguage.gov/howto/wordsuggestions/simplewords.cfm'>plainlanguage.gov</a></div>
+  <div data-background-image='./img/plainlanguage.png'></div>
+  <div>Provides words to <em>avoid</em>, words to <em>omit</em>, words that can be <em>swapped</em>.</div>
+  <div data-background-image='./img/copy-cop.gif'></div>
+  <div><a href='http://www.hemingwayapp.com/'>Hemingway App</a></div>
+  <div data-background-image='./img/hemingway.png'></div>
+  <div><a href='https://github.com/mapbox/retext-mapbox-standard'>retext-mapbox-standard</a> and <a href='https://github.com/tmcw/docbox'>docbox</a> are both <strong>open source</strong>!</div>
+  <div><em>Other testing tools?</em> Tweet them out with <span class='green'>#writethedocs</span>!</div>
+  <div data-background-image='./img/cactus.jpg'></div>
+  <div><ul><li>This presentation: <a href='http://lyzidiamond.com/content-testing-wtd'>lyzidiamond.com/content-testing-wtd</a></li><li>Me: <a href='https://twitter.com/lyzidiamond'>@lyzidiamond</a></li><li>You: <strong>fantastic</strong>!</li></ul><em>Thank you so much!</em></div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
